@@ -21,12 +21,12 @@
 
 ;;; Internal Global Variables
 
-(defvar *refracts*)
-(defvar *record*)
-(defvar *record-array*)
-(defvar *recording*)
-(defvar *max-record-index*)
-(defvar *record-index*)
+(defvar *refracts* nil)
+(defvar *record* nil)
+(defvar *record-array* nil)
+(defvar *recording* nil)
+(defvar *max-record-index* nil)
+(defvar *record-index* nil)
 
 
 
@@ -39,7 +39,6 @@
 
 (defun back (k)
   (dotimes (i k)
-    (declare (ignore i))
     (let ((r (aref *record-array* *record-index*))) ; (('))
       (when (null r) (return '|nothing more stored|))
       (setf (aref *record-array* *record-index*) nil)
